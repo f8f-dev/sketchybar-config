@@ -100,5 +100,14 @@ sketchybar --add item mode_indicator left \
                                 label.color=0xffd75f5f \
                                 label.font="JetBrainsMono Nerd Font:Bold:14.0"
 
+                                sketchybar --add event input_source_change "AppleSelectedInputSourcesChangedNotification"
+
+sketchybar --add item keyboard right \
+           --set keyboard update_freq=0 \
+                          script="$PLUGIN_DIR/keyboard.sh" \
+                          label.font="SF Pro:Bold:12.0" \
+                          icon.drawing=off \
+           --subscribe keyboard input_source_change
+
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
